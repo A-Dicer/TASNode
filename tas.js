@@ -131,8 +131,8 @@ function change(type){
 	inquirer.prompt([
 		{ type: "input", message: "Line: ",      name: "line" },
 	    	{ type: "input", message: "Frames: ",    name: "frames" },
-	   	{ type: "list",  message: "Direction: ", choices: [".", "R", "L"],      name: "direction" },
-	    	{ type: "list",	 message: "Action: ", 	 choices: [".", "J", "S", "X"], name: "action" }
+		{ type: "list",	 message: "Action: ",	 name: "action",    choices: [".", "J", "S", "X"] },
+		{ type: "list",  message: "Direction: ", name: "direction", choices: [".", "R", "L"] }
 	]).then(function(response) {
 		if(type === "add"){
 			// creats a new line in the tas
