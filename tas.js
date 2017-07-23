@@ -13,17 +13,8 @@ var frameCount = 0;
 
 function fileChoice(){
 	inquirer.prompt([
-	    {
-	    	type: "list",
-	    	message: " ",
-	    	choices: ["Open File", "Create New File"],
-	    	name: "choice",
-	    },
-	    {
-	    	type: "input",
-	    	message: "Name: ",
-	    	name: "name",
-	    }
+	    { type: "list",  message: " ", choices: ["Open File", "Create New File"], name: "choice" },
+	    { type: "input", message: "Name: ", name: "name" }
 	])
 	.then(function(response) {
 		//take file name and add .json extension
@@ -95,8 +86,7 @@ function action(){
 				saveData();
 		  	}
 	  	//show results - restart
-	  	output();
-	  	action();
+	  	output(); action();
 	  	} 
 	});
 }
@@ -122,7 +112,6 @@ function saveData(){
 //              console.logs current tas information
 
 function output(){
-
 	console.log("");
 	for(i = 0; i < tas.length; i++){
 		console.log("Line " + (i + 1) 
@@ -140,28 +129,10 @@ function output(){
 
 function change(type){
 	inquirer.prompt([
-		{
-		    type: "input",
-		    message: "Line: ",
-		    name: "line",
-	    },
-	    {
-		    type: "input",
-		    message: "Frames: ",
-		    name: "frames",
-	    },
-	   {
-		    type: "list",
-		    message: "Direction: ",
-		    choices: [".", "R", "L"],
-		    name: "direction",
-	    },
-	    {
-		    type: "list",
-		    message: "Action: ",
-		    choices: [".", "J", "S", "X"],
-		    name: "action",
-	    },
+		{ type: "input", message: "Line: ",      name: "line" },
+	    { type: "input", message: "Frames: ",    name: "frames" },
+	   	{ type: "list",  message: "Direction: ", choices: [".", "R", "L"],      name: "direction" },
+	    { type: "list",	 message: "Action: ", 	 choices: [".", "J", "S", "X"], name: "action" }
 	]).then(function(response) {
 		if(type === "add"){
 			// creats a new line in the tas
@@ -173,10 +144,7 @@ function change(type){
 			tas[response.line - 1] = new Build.Line(parseInt(response.frames), response.direction, response.action);	
 		}
 		//backup - save - show results - restart
-		backup();
-		saveData();
-		output();	
- 		action();
+		backup(); saveData(); output();	action();
   	});
 }
 
@@ -185,11 +153,7 @@ function change(type){
 
 function remove(){
 	inquirer.prompt([
-	    {
-	    	type: "input",
-	    	message: "Line: ",
-	    	name: "lineNumber",
-	    }
+	    { type: "input", message: "Line: ", name: "lineNumber" }
 	])
 	.then(function(response) {
 			//confirm you want to actually delete
@@ -224,10 +188,7 @@ function lineDelete(lineNumber){
 	//finds line number and removes it
 	tas.splice(lineNumber, 1)
 	//backup - save - show results - restart
-	backup();
-	saveData();
-	output();
-	action();
+	backup(); saveData(); output(); action();
 }
 
 //----------------------------- quit -------------------------------------
