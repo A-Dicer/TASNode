@@ -82,24 +82,12 @@ function action(){
 	])
 	.then(function(response) {
 	switch (response.choice) {
-	    case "Edit a Line":
-	      change();
-	      break;
-	    case "Add a Line":
-	      change("add");
-	      break;
-	    case "Delete a Line":
-	      remove();
-	      break;
-	    case "Add Text":
-	      addText();
-	      break;
-	    case "Display All Lines":
-	      output(0,tas.length), action();
-	      break;
-	    case "Quit":
-	      quit();
-	      break;
+	    case "Edit a Line": change(); break;
+	    case "Add a Line": change("add"); break;
+	    case "Delete a Line": remove(); break;
+	    case "Add Text": addText(); break;
+	    case "Display All Lines": output(0,tas.length), action(); break;
+	    case "Quit": quit(); break;
 	    case "Undo":
 	      	var undoLocation = undo.length - 2;
 		  		//check to see if there is anything to undo
@@ -182,8 +170,8 @@ function output(lineStart, lineEnd){
 function change(type){
 	inquirer.prompt([
 		{ type: "input", message: "Line: ",      name: "line" },
-	    { type: "input", message: "Frames: ",    name: "frames" },
-	    { type: "list",  message: "Direction: ", name: "direction", choices: ["None", "R", "L", "U", "D"] },
+		{ type: "input", message: "Frames: ",    name: "frames" },
+		{ type: "list",  message: "Direction: ", name: "direction", choices: ["None", "R", "L", "U", "D"] },
 		{ type: "list",	 message: "Action: ",	 name: "action",	choices: ["None", "J", "S", "X", "B"] }
 		
 	 	
@@ -273,8 +261,7 @@ function addText(){
 		backup(); saveData(); 
 		output(parseInt(response.line)-5, parseInt(response.line)+5); 
 		action();
-	});
-	
+	});	
 }
 //----------------------------- quit -------------------------------------
 //          Inquirer function to confirm you want to quit
