@@ -3,10 +3,11 @@ module.exports = {Line, NewUndo, findPorpoise};
 //----------------------------- Line -------------------------------------
 //               Constructor for creating tas lines
 
-function Line(frames, direction, action)  {
+function Line(frames, direction, action, text)  {
 	this.frames = frames;
 	this.direction = direction;
 	this.action = action;
+	this.text = text;
 };
 
 //---------------------------- newUndo -----------------------------------
@@ -22,18 +23,18 @@ function NewUndo(info)  {
 function findPorpoise(){
 	console.log("\n    Thanks for TAS'ing Kalimba.")
 	console.log("        Find Your Porpiose!")
-	console.log("                                __");
-	console.log("                            _.-~  )");
-	console.log("                 _..--~~~~,'   ,-/     _");
-	console.log("              .-'. . . .'   ,-','    ,' )");
-	console.log("            ,'. . . _   ,--~,-'__..-'  ,'");
-	console.log("          ,'. . .  (@)' ---~~~~      ,'");
-	console.log("         /. . . . '~~             ,-'");
-	console.log("        /. . . . .             ,-'");
-	console.log("       ; . . . .  - .        ,'");
-	console.log("      : . . . .       _     /");
-	console.log("     . . . . .          `-.:");
-	console.log("    . . . ./  - .          )");
-	console.log("   .  . . |  _____..---.._/ _____");
-	console.log("-~~~~----~~~~             ~~\n");
+	console.log("                           __");
+	console.log("                       _.-~  )");
+	console.log("            _..--~~~~,'   ,-/     _");
+	console.log("         .-'. . . .'   ,-','    ,' )");
+	console.log("       ,'. . . _   ,--~,-'__..-'  ,'");
+	console.log("     ,'. . .  (@)' ---~~~~      ,'");
+	console.log("    /. . . . '~~             ,-'");
+	console.log("   /. . . . .             ,-'");
+	console.log("  ; . . . .  - .        ,'");
+	console.log(" : . . . .       _     /");
+	console.log(". . . . .          `-.:");
+	console.log(" . . ./  - .          )");
+	console.log(" . . |  _____..---.._/");
+	console.log("----~~~~             ~~\n");
 };
